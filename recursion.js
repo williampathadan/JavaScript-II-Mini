@@ -12,7 +12,7 @@ while (n <= 10) {
 // code here
 const countToTen = (n = 1) => {
   if (n === 11) return;
-  console.log("Recursive Function", n);
+  console.log(`Recursive Function`, n);
   return countToTen(++n);
 };
 
