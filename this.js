@@ -45,4 +45,20 @@ newUser.getName();
 // Principle 4
 
 // code example for Explicit Binding
-Animal.call(this, options);
+function Animal(options) {
+    this.name = options.name;
+}
+Animal.prototype.grow = function () {
+  console.log(`${this.name} grew larger`);
+};
+function Cat(options) {
+    // invoke Animal here with .call
+    Animal.call(this, options);
+}
+Cat.prototype = Object.create(Animal.prototype);
+
+const foofie = new Cat({
+    name: 'foofie',
+});
+//
+foofie.grow();
